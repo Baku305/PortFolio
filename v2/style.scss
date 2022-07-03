@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@400;500;600&display=swap");
+@import "mixin/variables";
+@import "mixin/mixin.scss";
+@import "mixin/_button.scss";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  display: flex;
+  @include flex(column, center, center);
+}
+
+h1{
+    font-size: 5rem;
+    font-weight: 700;
+    color: $secondaryColor;
+    text-shadow: 2 2 10px $smoke;
+}
+
+h3{
+    font-size: 2rem;
+    font-weight: 700;
+    color: $secondaryColor;
+    margin-bottom: 1rem;
+    text-shadow: 2 2 10px $water;
+    top: 0;
+}
+
+label{
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $secondaryColor;
+    margin-bottom: 1rem;
+    text-shadow: 2 2 10px $water;
+
+    &.labelCheck{
+        top: -2rem;
+        left: 36.5rem;
+    }
+
+    &.labelSort{
+        left: 63rem;
+        top:-2rem;
+}
+
+}
+
+#container {
+  margin-top: 1rem;
+  display: flex;
+  height: max-content;
+  width: 80rem;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 0.6px rgba(0, 0, 0, 0.103),
+    0px 0px 1.3px rgba(0, 0, 0, 0.119), 0px 0px 2.4px rgba(0, 0, 0, 0.143),
+    0px 0px 4.2px rgba(0, 0, 0, 0.176), 0px 0px 8.1px rgba(0, 0, 0, 0.215),
+    0px 0px 21px rgba(0, 0, 0, 0.26);
+    background-color: $smoke;
+    padding: 2rem;
+
+
+
+  .searchContainer {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    @include flex(#add-row, space-around, center);
+    width: 100%;
+    position: relative;
+
+
+    .searchInput {
+      z-index: 3;
+      @extend %button-drow-style;
+      background-color: #fff;
+      border: 1px solid $secondaryColor;
+      width: 20rem;
+      height: 4rem;
+      font-size: 2rem
+    }
+
+    select {
+        @extend %button-drow-style;
+        transform: rotate(0deg);
+        color: #fff;
+        font-size: 1.5rem;
+        padding-left: .5rem;
+        z-index: 3;
+      option {
+        @extend %button-drow-style;
+        color: #fff;
+        font-size: 1.5rem;
+        text-align: start;
+        padding-left: 0;
+        margin-left: 0;
+      }
+    }
+  }
+
+  .contentContainer{
+    display: flex;
+    @include flex(column, scenter, center);
+    width: 100%;
+  }
+
+    .resultContainer {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: $smoke;
+        font-size: 1.5rem;
+        font-weight: 500;
+        border: 2px solid $smoke;
+        padding: 3rem;
+        box-shadow:
+  0px 13.8px 3.3px rgba(0, 0, 0, 0.058),
+  0px 17.3px 8px rgba(0, 0, 0, 0.087),
+  0px 19.5px 15px rgba(0, 0, 0, 0.111),
+  0px 21.2px 26.8px rgba(0, 0, 0, 0.132),
+  0px 22.7px 50.1px rgba(0, 0, 0, 0.154),
+  0px 24px 120px rgba(0, 0, 0, 0.19)
+;
+
+        .todoSortedEl {
+          padding: 1rem 4rem;
+          width: 100%;
+          @include flex(row, space-between, center);
+          box-shadow: inset 0 0 0 0 $primeColor;
+          color: $primeColor;
+          transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+    
+    
+          &:hover{
+            box-shadow: inset 100px 0 0 0 $secondaryColor;
+            color: white;
+          }
+    
+    
+          .todoIdProd {
+            padding: 10px;
+          }
+          .todoTitleProd {
+            padding: 10px;
+          }
+          .todoCompletedProv {
+            padding: 10px;
+          }
+        }
+        
+      }
+
+
+
+  .buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    bottom: 5rem;
+    position: absolute;
+
+    .button {
+      @extend %button-drow-style;
+      color: #fff;
+      width: 10rem;
+      height: 4rem;
+      font-size: 2rem;
+    }
+
+    #buttonPrev {
+        top: 1rem;
+      
+  &:hover {
+    box-shadow: inset 100px 0 0 0 $secondaryColor;
+    color: white;
+    transform: translate(-2px);
+  }
+    }
+
+    #buttonNext {
+        top: 1rem;
+        right: 7rem;
+  &:hover {
+    box-shadow: inset 100px 0 0 0 $secondaryColor;
+    color: white;
+    transform: translate(2px);
+  }
+    }
+  }
+
+  .counterContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 5rem;
+    background-color: $smoke;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border: 2px solid $smoke;
+    padding: 1rem;
+    padding-top: 2rem;
+  }
+    .numberContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 5rem;
+        background-color: $smoke;
+        font-size: 1.5rem;
+        font-weight: 500;
+        border: 2px solid $smoke;
+        padding: 1rem;
+        padding-top: 2rem;
+
+
+        .number{
+            padding: .5rem;
+            cursor: pointer;
+
+            &:hover{
+                box-shadow: inset 100px 0 0 0 $secondaryColor;
+                color: white;
+                transition: .2s ease-in-out;
+            }
+        }
+    }
+}
+
+.hidden {
+  display: none;
+}
+
+.todo-visible {
+  display: flex;
+}
+
+.active{
+    box-shadow: inset 100px 0 0 0 $secondaryColor;
+    color: white;
+    transform: translate(0px, -4px);
+    transition: 0.5s;
+}
